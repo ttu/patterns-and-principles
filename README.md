@@ -18,6 +18,8 @@ Examples try to use more real-life cases than Coffee or Animal classes. Examples
 
 ### Structural
   * Adapter
+  * Composition
+  * Decorator
 
 ## SOLID Principles
   * Liskov
