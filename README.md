@@ -1,8 +1,8 @@
 # C# Patterns & Practices
 
-Code examples for Patterns and Practices - are these important anymore? training.
+Code examples for _Patterns and Practices, are these important anymore?_ training.
 
-Examples try to use more real-life cases than Coffee or Animal classes. Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
+Examples try to use more real-life cases than normal Coffee or Animal examples. Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
 
 > Work in progess
 
@@ -10,19 +10,42 @@ Examples try to use more real-life cases than Coffee or Animal classes. Examples
 
 ### Behavioral
   * Command
-  * Proxy
+  * TODO
+    * Chain of Responsibility
+    * Observer
+    * Interpreter
+    * Iterator
+    * Memento
+    * Mediator
+    * State
+    * Strategy
+    * Template Method
 
 ###  Creational
   * Prototype
   * Singleton
+  * TODO
+    * Factory
+    * Abstract Factory
+    * Builder
 
 ### Structural
   * Adapter
   * Composition
   * Decorator
+  * Proxy
+  * TODO
+    * Bridge
+    * Facade
+    * Flyweight
 
 ## SOLID Principles
-  * Liskov
+  * Liskov substitution
+  * TODO
+    * Single responsibility
+    * Open/Closed
+    * Interface segregation
+    * Dependency inversion
 
 ## Links
 

@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PatternsAndPractices.Patterns.GoF.Behavioral
+namespace PatternsAndPractices.Patterns.GoF.Structural
 {
     /*
      * Provide a surrogate or placeholder for another object to control access to it.
