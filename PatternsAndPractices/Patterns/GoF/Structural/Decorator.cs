@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using System.Diagnostics;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace PatternsAndPractices.Patterns.GoF.Structural
 {
@@ -11,7 +13,8 @@ namespace PatternsAndPractices.Patterns.GoF.Structural
     {
         public bool UpdateUserAddress(int userId, string address)
         {
-            // Write data to DB
+            Trace.WriteLine($"Write data to DB: {userId} - {address}");
+
             return true;
         }
     }
@@ -35,7 +38,7 @@ namespace PatternsAndPractices.Patterns.GoF.Structural
         {
             var result = base.UpdateUserAddress(userId, address);
 
-            // Update Audit Trail
+            Trace.WriteLine($"Update Audit Trail: {userId} - {address}");
 
             return result;
         }
@@ -51,7 +54,7 @@ namespace PatternsAndPractices.Patterns.GoF.Structural
         {
             var result = base.UpdateUserAddress(userId, address);
 
-            // Send data to MessageBus
+            Trace.WriteLine($"Send data to MessageBus: {userId} - {address}");
 
             return result;
         }
@@ -59,6 +62,8 @@ namespace PatternsAndPractices.Patterns.GoF.Structural
 
     public class DecoratorTests
     {
+        public DecoratorTests(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
+
         [Fact]
         public void Test()
         {
