@@ -4,11 +4,16 @@ Code examples for _Patterns and Practices, are these important anymore?_ trainin
 
 Examples try to use more real-life cases than normal Coffee or Animal examples. Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
 
+Examples also contain UML class diagram examples, as Gof Patterns are presented in UML. 
+
 > Work in progess
 
-## GoF Patterns
+## Patterns
 
-### Behavioral
+### GoF
+
+#### Behavioral
+
   * Command
   * TODO
     * Chain of Responsibility
@@ -21,7 +26,8 @@ Examples try to use more real-life cases than normal Coffee or Animal examples. 
     * Strategy
     * Template Method
 
-###  Creational
+#### Creational
+
   * Prototype
   * Singleton
   * TODO
@@ -29,7 +35,8 @@ Examples try to use more real-life cases than normal Coffee or Animal examples. 
     * Abstract Factory
     * Builder
 
-### Structural
+#### Structural
+
   * Adapter
   * Composition
   * Decorator
@@ -39,12 +46,22 @@ Examples try to use more real-life cases than normal Coffee or Animal examples. 
     * Facade
     * Flyweight
 
-## SOLID Principles
+### Other
+
+  * TODO
+    * DI
+	* Service Locator
+	* Repository
+
+## Practices
+
+### SOLID Principles
+
   * Liskov substitution
+  * Interface segregation
   * TODO
     * Single responsibility
     * Open/Closed
-    * Interface segregation
     * Dependency inversion
 
 ## Links
@@ -54,3 +71,5 @@ Examples try to use more real-life cases than normal Coffee or Animal examples. 
 * https://github.com/Lc5/DesignPatternsCSharp
 * https://github.com/abishekaditya/DesignPatterns
 * https://softwareengineering.stackexchange.com/questions/178488/lsp-vs-ocp-liskov-substitution-vs-open-close
+* https://stackoverflow.com/questions/1658192/what-is-the-difference-between-strategy-design-pattern-and-state-design-pattern
+* https://softwareengineering.stackexchange.com/questions/201397/difference-between-the-adapter-pattern-and-the-proxy-pattern
