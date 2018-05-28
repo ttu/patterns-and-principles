@@ -30,6 +30,7 @@ Examples also contain UML class diagram examples, as Gof Patterns are presented 
 
   * Prototype
   * Singleton
+  * Object Pool
   * TODO
     * Factory
     * Abstract Factory
