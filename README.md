@@ -15,12 +15,12 @@ Examples also contain UML class diagram examples, as Gof Patterns are presented 
 #### Behavioral
 
   * Command
+  * Observer
+  * Memento
   * TODO
     * Chain of Responsibility
-    * Observer
     * Interpreter
     * Iterator
-    * Memento
     * Mediator
     * State
     * Strategy
@@ -63,6 +63,12 @@ Examples also contain UML class diagram examples, as Gof Patterns are presented 
     * Single responsibility
     * Open/Closed
     * Dependency inversion
+
+### Other
+ 
+  * TODO
+    * Coupling
+    * Cohesion
 
 ## Links
 
