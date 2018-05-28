@@ -4,7 +4,7 @@
 
 const fetch = require("node-fetch");
 
-const URL = "http://dummy-sensors.azurewebsites.net/api/sensor/iddqd";
+const URL = 'http://dummy-sensors.azurewebsites.net/api/sensor/iddqd';
 
 const cache = {};
 
