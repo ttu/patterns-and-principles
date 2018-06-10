@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace PatternsAndPractices.UML
+namespace PatternsAndPinciples.UML
 {
     public class Invoice
     {

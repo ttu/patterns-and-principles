@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Xunit.Abstractions;
 
-namespace PatternsAndPractices
+namespace PatternsAndPinciples
 {
     internal class TestTraceListener : TraceListener
     {

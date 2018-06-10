@@ -4,7 +4,7 @@ using System.Diagnostics;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PatternsAndPractices.Patterns.GoF.Behavioral
+namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
     public class Memento<T>
     {

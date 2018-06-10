@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace PatternsAndPractices.UML
+namespace PatternsAndPinciples.UML
 {
     public class Flight
     {

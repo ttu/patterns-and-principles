@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace PatternsAndPractices.Patterns.GoF.Creational
+namespace PatternsAndPinciples.Patterns.GoF.Creational
 {
     public sealed class Singleton
     {

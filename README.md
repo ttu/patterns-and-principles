@@ -1,6 +1,6 @@
-# C# Patterns & Practices
+# C# Patterns & Principles
 
-Code examples for _Patterns and Practices, are these important anymore?_ training.
+Code examples for _Patterns and Principles, are these important anymore?_ training.
 
 Examples try to use more real-life cases than normal Coffee or Animal examples. Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
 
@@ -54,7 +54,7 @@ Examples also contain UML class diagram examples, as Gof Patterns are presented 
 	* Service Locator
 	* Repository
 
-## Practices
+## Principles
 
 ### SOLID Principles
 

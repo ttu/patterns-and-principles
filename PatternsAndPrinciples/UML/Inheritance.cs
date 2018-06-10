@@ -1,4 +1,4 @@
-﻿namespace PatternsAndPractices.UML
+﻿namespace PatternsAndPinciples.UML
 {
     public class User { }
 

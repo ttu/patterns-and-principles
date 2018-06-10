@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PatternsAndPractices.Patterns.GoF.Behavioral
+namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
     public abstract class Device
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace PatternsAndPractices.Practices.SOLID
+namespace PatternsAndPinciples.Principles.SOLID
 {
     public abstract class MessageBusConnection
     {

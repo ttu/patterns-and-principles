@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace PatternsAndPractices.Patterns.GoF.Structural
+namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
     /*
      * The primary purpose of the adapter pattern is to change the interface of class/library A to the expectations of client B.

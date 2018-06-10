@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace PatternsAndPractices.Patterns.GoF.Structural
+namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
     public abstract class Component
     {

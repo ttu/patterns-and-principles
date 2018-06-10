@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Xunit;
 
-namespace PatternsAndPractices.Patterns.GoF.Creational
+namespace PatternsAndPinciples.Patterns.GoF.Creational
 {
     public abstract class Prototype
     {

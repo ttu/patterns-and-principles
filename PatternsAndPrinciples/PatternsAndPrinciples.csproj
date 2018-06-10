@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <RootNamespace>PatternsAndPractices</RootNamespace>
+    <RootNamespace>PatternsAndPrinciples</RootNamespace>
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>PatternsAndPractices</AssemblyName>
+    <AssemblyName>PatternsAndPrinciples</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

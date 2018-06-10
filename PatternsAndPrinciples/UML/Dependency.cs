@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PatternsAndPractices.UML
+namespace PatternsAndPinciples.UML
 {
     public interface ISearchService
     {

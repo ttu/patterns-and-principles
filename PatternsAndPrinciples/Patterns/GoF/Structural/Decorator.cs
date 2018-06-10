@@ -2,7 +2,7 @@
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PatternsAndPractices.Patterns.GoF.Structural
+namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
     public interface IDataStore
     {

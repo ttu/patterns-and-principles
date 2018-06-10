@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace PatternsAndPractices.Patterns.GoF.Creational
+namespace PatternsAndPinciples.Patterns.GoF.Creational
 {
-    public class Releasable
+    public class Connection
     {
         public Guid Id { get; } = Guid.NewGuid();
     }
 
-    public class ReleasablePool
+    public class ConnectionPool
     {
-        private readonly Stack<Releasable> _freeList = new Stack<Releasable>();
+        private readonly Stack<Connection> _freeList = new Stack<Connection>();
 
-        public Releasable AquireReusable()
+        public Connection AquireReusable()
         {
             _freeList.TryPop(out var connection);
-            return connection ?? new Releasable();
+            return connection ?? new Connection();
         }
 
-        public void ReleaseReusable(Releasable toRelease)
+        public void ReleaseReusable(Connection toRelease)
         {
             _freeList.Push(toRelease);
         }
@@ -30,7 +30,7 @@ namespace PatternsAndPractices.Patterns.GoF.Creational
         [Fact]
         public void ReleasableTest()
         {
-            var pool = new ReleasablePool();
+            var pool = new ConnectionPool();
 
             var releasable1 = pool.AquireReusable();
             var releasable2 = pool.AquireReusable();
