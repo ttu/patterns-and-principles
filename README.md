@@ -1,23 +1,28 @@
 # C# Patterns & Principles
 
+> Work in progess
+
 Code examples for _Patterns and Principles, are these important anymore?_ training.
 
-Examples try to use more real-life cases than normal Coffee or Animal examples. Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
+Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
 
-Examples also contain UML class diagram examples, as Gof Patterns are presented in UML. 
+Examples try to use more real life cases, but in sometimes it is just hard to come up with a simple example.
 
-> Work in progess
+Examples also contain UML class diagram code samples, as Gof Patterns are presented in UML. 
 
 ## Patterns
 
-### GoF
+### Gang of Four
+
+GoF Pattern class diagrams: [MCDONALDLAND - Design Patterns Quick Reference](
+http://www.mcdonaldland.info/2007/11/28/40/)
 
 #### Behavioral
 
   * Command
   * Observer
   * Memento
-  * TODO
+  * __TODO__
     * Chain of Responsibility
     * Interpreter
     * Iterator
@@ -31,9 +36,9 @@ Examples also contain UML class diagram examples, as Gof Patterns are presented 
   * Prototype
   * Singleton
   * Object Pool
-  * TODO
-    * Factory
-    * Abstract Factory
+  * Factory
+  * Abstract Factory
+  * __TODO__
     * Builder
 
 #### Structural
@@ -42,14 +47,14 @@ Examples also contain UML class diagram examples, as Gof Patterns are presented 
   * Composition
   * Decorator
   * Proxy
-  * TODO
+  * __TODO__
     * Bridge
     * Facade
     * Flyweight
 
 ### Other
 
-  * TODO
+  * __TODO__
     * DI
 	* Service Locator
 	* Repository
@@ -60,21 +65,21 @@ Examples also contain UML class diagram examples, as Gof Patterns are presented 
 
   * Liskov substitution
   * Interface segregation
-  * TODO
+  * __TODO__
     * Single responsibility
     * Open/Closed
     * Dependency inversion
 
 ### Other
  
-  * TODO
+  * __TODO__
     * Coupling
     * Cohesion
 
 ## Links
 
 * https://sourcemaking.com/design_patterns
-* http://www.celinio.net/techblog/?p=65
+* http://www.mcdonaldland.info/2007/11/28/40/
 * https://github.com/Lc5/DesignPatternsCSharp
 * https://github.com/abishekaditya/DesignPatterns
 * https://softwareengineering.stackexchange.com/questions/178488/lsp-vs-ocp-liskov-substitution-vs-open-close
