@@ -2,13 +2,15 @@
 
 > Work in progess
 
-Code examples for _Patterns and Principles, are these important anymore?_ training.
+Code examples for _Patterns and Principles - are these important anymore?_ training.
 
 Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
 
-Examples try to use more real life cases, but in sometimes it is just hard to come up with a simple example.
+Examples try to use more real life cases, but sometimes it is hard to come up with a simple example.
 
 Examples also contain UML class diagram code samples, as Gof Patterns are presented in UML. 
+
+Each file has classes and interfaces for the pattern/principle and tests for executing examples.
 
 ## Patterns
 
@@ -38,8 +40,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
   * Object Pool
   * Factory
   * Abstract Factory
-  * __TODO__
-    * Builder
+  * Builder
 
 #### Structural
 
