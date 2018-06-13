@@ -60,6 +60,20 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
         }
     }
 
+    public class MockDecorator : DataStoreDecorator
+    {
+        public MockDecorator(IDataStore store) : base(store)
+        {
+        }
+
+        public override bool UpdateUserAddress(int userId, string address)
+        {
+            // Do not call base function so this is the only decorator executed
+            Trace.WriteLine($"Do nothing: {userId} - {address}");
+            return true;
+        }
+    }
+
     public class DecoratorTests
     {
         public DecoratorTests(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
@@ -70,6 +84,15 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
             IDataStore store = new DataStore();
             store = new AuditTrailDecorator(store);
             store = new DataUpdatedNotificationDecorator(store);
+
+            store.UpdateUserAddress(34, "Street 10 A");
+        }
+
+        [Fact]
+        public void Mock_Test()
+        {
+            IDataStore store = new DataStore();
+            store = new MockDecorator(store);
 
             store.UpdateUserAddress(34, "Street 10 A");
         }

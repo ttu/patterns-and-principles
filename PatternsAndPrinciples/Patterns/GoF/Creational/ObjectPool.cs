@@ -28,7 +28,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
     public class ObjectPoolTest
     {
         [Fact]
-        public void ReleasableTest()
+        public void Releasable_Test()
         {
             var pool = new ConnectionPool();
 
@@ -44,7 +44,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
         }
 
         [Fact]
-        public void Test()
+        public void Disposable_Test()
         {
             var pool = new DataBaseConnection();
 
