@@ -1,21 +1,28 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
+    /*
+     * Encapsulate a request as an object, thereby letting you parameterize clients
+     * with different requests, queue or log requests, and support undoable operations
+     */
+
     public abstract class Device
     {
         public void TurnOn()
         {
-            // Turn device on
+            Trace.WriteLine("Device on");
         }
 
         public void TurnOff()
         {
-            // Turn device off
+            Trace.WriteLine("Device off");
         }
     }
 
@@ -25,7 +32,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
     {
         public void Measure(int protocolId)
         {
-            // Execute some measurement protocol
+            Trace.WriteLine($"Execute mesurement protocol {protocolId}");
         }
     }
 
@@ -66,11 +73,11 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
         public void Execute() => _device.Measure(_protocolToExecute);
     }
 
-    public class CommandEexecutor
+    public class CommandExecutor
     {
         private readonly BlockingCollection<ICommand> _commands = new BlockingCollection<ICommand>();
 
-        public CommandEexecutor()
+        public CommandExecutor()
         {
             // CommandEexecutor will execute commands in background
             Task.Run(() =>
@@ -90,6 +97,8 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
     public class CommandTest
     {
+        public CommandTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
+
         [Fact]
         public void Test()
         {
@@ -102,7 +111,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
             var programTwoCommand = new StartMesurementProgramCommand(measurementnDevice, 2);
             var deviceOffCommand = new DeviceOffCommand(measurementnDevice);
 
-            var commandProcessor = new CommandEexecutor();
+            var commandProcessor = new CommandExecutor();
 
             commandProcessor.AddCommand(tvOnCommand);
             commandProcessor.AddCommand(deviceOnCommand);

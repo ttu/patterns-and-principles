@@ -6,6 +6,8 @@ using Xunit;
 namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
     /*
+     * Wraps an object to control access to it
+     * 
      * Provide a surrogate or placeholder for another object to control access to it.
      * The purpose of the proxy pattern is to create a stand-in for a real resource.
      */

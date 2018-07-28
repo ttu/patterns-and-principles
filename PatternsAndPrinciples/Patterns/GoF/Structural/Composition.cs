@@ -4,6 +4,13 @@ using Xunit;
 
 namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
+    /*
+     * Clients treat collections of objects and individual objects uniformally
+     * 
+     * Example has a set of values as a root component and different mathematical calculations are
+     * executed to that data set. Values of each calculation component can be inspected individually
+     */
+
     public abstract class Component
     {
         protected readonly List<Component> _components = new List<Component>();
@@ -49,7 +56,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
         }
     }
 
-    public class RemoveComponent : Component
+    public class RemoveEqualComponent : Component
     {
         public override void Update()
         {
@@ -84,7 +91,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
 
             var original = new RootComponent(items);
             var add = new AddComponent(2);
-            var remove = new RemoveComponent();
+            var remove = new RemoveEqualComponent();
             var multiply = new MultipleComponent(4);
 
             /*
@@ -99,6 +106,11 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
             original.Add(remove);
             add.Add(multiply);
             original.Update();
+
+            Assert.Equal(original.Values, new List<int> { 1, 2, 3, 4 });
+            Assert.Equal(remove.Values, new List<int> { 1, 3 });
+            Assert.Equal(add.Values, new List<int> { 3, 4, 5, 6 });
+            Assert.Equal(multiply.Values, new List<int> { 12, 16, 20, 24 });
         }
     }
 }

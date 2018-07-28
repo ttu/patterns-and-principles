@@ -6,6 +6,15 @@ using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
+    /*
+     * A pulish/subscribe pattern which allows a number of observer objects to see an event.
+     *
+     * Define a one-to-many dependency between objects so that when one object changes
+     * state, all its dependents are notified and updated automatically.
+    */
+
+    #region "Observer"
+
     public interface IObserver
     {
         void Update(int data);
@@ -15,7 +24,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
     {
         public void Update(int data)
         {
-            Trace.WriteLine($"Send data to DB: {data}");
+            Trace.WriteLine($"Now I will send data to DB: {data}");
         }
     }
 
@@ -23,7 +32,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
     {
         public void Update(int data)
         {
-            Trace.WriteLine($"Send data to API: {data}");
+            Trace.WriteLine($"Now I will send data to API: {data}");
         }
     }
 
@@ -70,6 +79,8 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
         }
     }
 
+    #endregion "Observer"
+
     public class ObserverTests
     {
         public ObserverTests(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
@@ -84,6 +95,8 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
             monitor.Start(dbObserver, apiObserver);
         }
     }
+
+    #region "IObserver"
 
     // C# has also interfaces IObserver<T> and IObservable<T>
     // https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern
@@ -138,6 +151,8 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
         public void Next(int data) => _observers.ForEach(o => o.OnNext(data));
     }
+
+    #endregion "IObserver"
 
     public class SystemObserverTests
     {

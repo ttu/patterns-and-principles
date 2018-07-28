@@ -16,7 +16,7 @@ Each file has classes and interfaces for the pattern/principle and tests for exe
 
 ### Gang of Four
 
-GoF Pattern class diagrams: [MCDONALDLAND - Design Patterns Quick Reference](
+GoF Pattern class diagrams: [Design Patterns Quick Reference (MCDONALDLAND)](
 http://www.mcdonaldland.info/2007/11/28/40/)
 
 #### Behavioral
@@ -74,8 +74,10 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 ### Other
  
   * __TODO__
+    * Modularity 
     * Coupling
     * Cohesion
+    * Command Query separation
 
 ## Links
 
@@ -83,6 +85,10 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 * http://www.mcdonaldland.info/2007/11/28/40/
 * https://github.com/Lc5/DesignPatternsCSharp
 * https://github.com/abishekaditya/DesignPatterns
+
+#### Differences
+
 * https://softwareengineering.stackexchange.com/questions/178488/lsp-vs-ocp-liskov-substitution-vs-open-close
-* https://stackoverflow.com/questions/1658192/what-is-the-difference-between-strategy-design-pattern-and-state-design-pattern
 * https://softwareengineering.stackexchange.com/questions/201397/difference-between-the-adapter-pattern-and-the-proxy-pattern
+* https://stackoverflow.com/questions/1658192/what-is-the-difference-between-strategy-design-pattern-and-state-design-pattern
+ 

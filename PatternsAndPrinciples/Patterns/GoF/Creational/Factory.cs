@@ -12,6 +12,7 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
     public interface IHttpRequestHandler
     {
         // .. all other methods ..
+
         IHttpResponse CreateResponse(int httpStatusCode);
     }
 }

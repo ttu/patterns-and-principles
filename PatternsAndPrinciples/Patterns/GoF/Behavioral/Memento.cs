@@ -6,6 +6,15 @@ using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
+    /*
+     * Provides the ability to restore an object to its previous state (undo).
+     * 
+     * Without violating encapsulation, capture and externalize an object's internal state
+     * so that the object can be restored to this state later.
+     */
+
+    #region "Memento"
+
     public class Memento<T>
     {
         public Memento(T state) => State = state;
@@ -30,6 +39,55 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
         public Memento<T> Get(int index) => _savedStates[index];
     }
+
+    #endregion "Memento"
+
+    #region "Undo/Redo"
+
+    // C# has also a powerful way to create undo/redo pattern with delegates
+
+    public class UndoAction
+    {
+        public Action Do { get; set; }
+        public Action Undo { get; set; }
+    }
+
+    public class History<T>
+    {
+        public Stack<UndoAction> _actions = new Stack<UndoAction>();
+        public Stack<UndoAction> _redo = new Stack<UndoAction>();
+
+        public void Do(UndoAction action)
+        {
+            _redo.Clear();
+            _actions.Push(action);
+            action.Do();
+        }
+
+        public void Redo()
+        {
+            var redo = _redo.Pop();
+
+            if (redo == null)
+                return;
+
+            _actions.Push(redo);
+            redo.Do();
+        }
+
+        public void Undo()
+        {
+            var toUndo = _actions.Pop();
+
+            if (toUndo == null)
+                return;
+
+            _redo.Push(toUndo);
+            toUndo.Undo();
+        }
+    }
+
+    #endregion "Undo/Redo"
 
     public class MementoTests
     {
@@ -87,49 +145,6 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
         private class MyData
         {
             public int Value { get; set; }
-        }
-    }
-
-    // C# has also a powerful way to create undo/redo pattern with delegates
-
-    public class UndoAction
-    {
-        public Action Do { get; set; }
-        public Action Undo { get; set; }
-    }
-
-    public class History<T>
-    {
-        public Stack<UndoAction> _actions = new Stack<UndoAction>();
-        public Stack<UndoAction> _redo = new Stack<UndoAction>();
-
-        public void Do(UndoAction action)
-        {
-            _redo.Clear();
-            _actions.Push(action);
-            action.Do();
-        }
-
-        public void Redo()
-        {
-            var redo = _redo.Pop();
-
-            if (redo == null)
-                return;
-
-            _actions.Push(redo);
-            redo.Do();
-        }
-
-        public void Undo()
-        {
-            var toUndo = _actions.Pop();
-
-            if (toUndo == null)
-                return;
-
-            _redo.Push(toUndo);
-            toUndo.Undo();
         }
     }
 }

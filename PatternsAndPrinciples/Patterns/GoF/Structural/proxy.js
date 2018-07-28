@@ -1,5 +1,7 @@
 ﻿/*
  * Proxy with functions
+ * Check also JavaScript Proxy object
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
  */
 
 const fetch = require("node-fetch");
