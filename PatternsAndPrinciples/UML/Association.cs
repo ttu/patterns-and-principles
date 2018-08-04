@@ -4,6 +4,14 @@ using Xunit;
 
 namespace PatternsAndPinciples.UML
 {
+    /*
+     * An association is a linkage between two classes. 
+     * 
+     * Associations are always assumed to be bi-directional; this means that both classes are aware of each other and their relationship. 
+     * 
+     * In a uni-directional association, two classes are related, but only one class knows that the relationship exists. 
+     */
+
     public class Flight
     {
         public string Id { get; set; }
