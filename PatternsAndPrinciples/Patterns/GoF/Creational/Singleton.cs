@@ -15,7 +15,9 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
         {
             get
             {
-                _instance = _instance ?? new Singleton();
+                if (_instance == null)
+                    _instance = new Singleton();
+
                 return _instance;
             }
         }

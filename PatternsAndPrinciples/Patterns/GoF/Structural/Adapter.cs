@@ -6,6 +6,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
     /*
      * The primary purpose of the adapter pattern is to change the interface of class/library A to the expectations of client B.
      * The typical implementation is a wrapper class or set of classes.
+     * 
      * The purpose is not to facilitate future interface changes, but current interface incompatibilities.
      */
 

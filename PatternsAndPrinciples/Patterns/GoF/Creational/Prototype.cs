@@ -5,6 +5,10 @@ using Xunit;
 
 namespace PatternsAndPinciples.Patterns.GoF.Creational
 {
+    /*
+     * A fully initialized instance to be copied or cloned
+     */
+
     public abstract class Prototype
     {
         public abstract Prototype Clone();
@@ -18,6 +22,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
         public override Prototype Clone()
         {
             return (Prototype)this.MemberwiseClone();
+            // TODO: Deep copy
         }
     }
 

@@ -3,6 +3,12 @@ using Xunit;
 
 namespace PatternsAndPrinciples.Patterns.GoF.Creational
 {
+    /*
+     * Constructs complex objects by separating construction and representation
+     * 
+     * Construction with builders and representation with IDeviceModules
+     */
+
     public interface IDeviceModule
     {
     }

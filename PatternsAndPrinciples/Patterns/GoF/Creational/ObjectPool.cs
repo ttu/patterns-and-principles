@@ -4,6 +4,10 @@ using Xunit;
 
 namespace PatternsAndPinciples.Patterns.GoF.Creational
 {
+    /*
+     * Avoids expensive acquisition and release of resources by recycling objects that are no longer in use
+     */
+
     public class Connection
     {
         public Guid Id { get; } = Guid.NewGuid();

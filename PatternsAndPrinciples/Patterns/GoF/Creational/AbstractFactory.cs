@@ -3,10 +3,12 @@
 namespace PatternsAndPrinciples.Patterns.GoF.Creational
 {
     /*
+     * Allows a client to create families of objects without specifying their concrete classes
+     * 
      * Different MessageQueue implementations that are interchangable
      * MessageQueue factories create specific Outbound and Reply queues
      */
-    
+
     public interface IMessageQueue { }
 
     public class MsmqMessageQueue : IMessageQueue { }
