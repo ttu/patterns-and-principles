@@ -55,6 +55,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
 ### Other
 
+  * Functions instead of DI
   * __TODO__
     * DI
 	* Service Locator
