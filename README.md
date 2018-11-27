@@ -25,13 +25,14 @@ http://www.mcdonaldland.info/2007/11/28/40/)
   * Observer
   * Memento
   * __TODO__
+    * Strategy
+    * State
+    * Template Method
+  * __TODO MAYBE__
     * Chain of Responsibility
     * Interpreter
     * Iterator
     * Mediator
-    * State
-    * Strategy
-    * Template Method
 
 #### Creational
 
@@ -48,9 +49,9 @@ http://www.mcdonaldland.info/2007/11/28/40/)
   * Composition
   * Decorator
   * Proxy
-  * __TODO__
+  * Facade
+  * __TODO MAYBE__
     * Bridge
-    * Facade
     * Flyweight
 
 ### Other

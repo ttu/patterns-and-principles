@@ -5,7 +5,7 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
 {
     /*
      * Constructs complex objects by separating construction and representation
-     * 
+     *
      * Construction with builders and representation with IDeviceModules
      */
 
@@ -94,4 +94,19 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
             yield return new DeviceModule("baseAA");
         }
     }
+
+    /*
+     * Check ImageFactory
+     * https://github.com/JimBobSquarePants/ImageProcessor/blob/develop/src/ImageProcessor/ImageFactory.cs
+     * e.g.
+     *  imageFactory.Load(inStream)
+     *              .Resize(resizeLayer)
+     *              .Format(format)
+     *              .Save(outStream);
+     */
+
+    /*
+     * Fluent interface vs Builder
+     * https://stackoverflow.com/questions/17937755/what-is-the-difference-between-a-fluent-interface-and-the-builder-pattern
+     */
 }
