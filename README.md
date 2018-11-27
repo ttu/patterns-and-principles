@@ -56,11 +56,12 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
 ### Other
 
+  * DI
   * Functions instead of DI
   * __TODO__
-    * DI
 	* Service Locator
 	* Repository
+    * Fluent Pattern
 
 ## Principles
 

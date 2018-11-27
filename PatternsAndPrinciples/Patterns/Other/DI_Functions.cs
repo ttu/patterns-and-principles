@@ -1,4 +1,5 @@
 ﻿using PatternsAndPinciples;
+using PatternsAndPinciples.Patterns.Other;
 using System;
 using System.Diagnostics;
 using Xunit;
@@ -8,54 +9,9 @@ namespace PatternsAndPrinciples.Patterns.Other
 {
     /*
      * How to use functions instead of repository
+     * 
+     * Compare to the example in DI.cs
      */
-
-    #region "Traditional OOP"
-
-    public class User
-    {
-        public int Id { get; set; }
-        public string Value { get; set; }
-    }
-
-    public class UserRepo
-    {
-        public User GetUser(int userId) => new User { Id = userId, Value = "XXX" };
-
-        public bool SaveUser(User use) => true;
-    }
-
-    public class UserServiceWithRepo
-    {
-        private readonly UserRepo _repo;
-
-        public UserServiceWithRepo(UserRepo repo) => _repo = repo;
-
-        public bool UpdateUser(int userId, string newValue)
-        {
-            var user = _repo.GetUser(userId);
-            user.Value = newValue;
-            return _repo.SaveUser(user);
-        }
-    }
-
-    public class FunctionsTest
-    {
-        public FunctionsTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
-        [Fact]
-        public void TestWithRepo()
-        {
-            var repo = new UserRepo();
-
-            var service = new UserServiceWithRepo(repo);
-            service.UpdateUser(1, "FF");
-        }
-    }
-
-    #endregion "Traditional OOP"
-
-    #region "Functional Style"
 
     public class UserService
     {
@@ -81,15 +37,6 @@ namespace PatternsAndPrinciples.Patterns.Other
         public FunctionsFunctionalTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
 
         [Fact]
-        public void TestFuncWithRepo()
-        {
-            var repo = new UserRepo();
-
-            var service = new UserService(repo.GetUser, repo.SaveUser);
-            service.UpdateUser(1, "FF");
-        }
-
-        [Fact]
         public void TestFunc()
         {
             var get = new Func<int, User>(i => new User { Id = i, Value = "XXX" });
@@ -109,7 +56,14 @@ namespace PatternsAndPrinciples.Patterns.Other
 
             handle(1, "FF", get, save);
         }
-    }
 
-    #endregion "Functional Style"
+        [Fact]
+        public void TestFuncWithRepo()
+        {
+            var repo = new UserRepository();
+
+            var service = new UserService(repo.GetUser, repo.SaveUser);
+            service.UpdateUser(1, "FF");
+        }
+    }
 }
