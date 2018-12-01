@@ -5,7 +5,7 @@ using Xunit.Abstractions;
 namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
     /*
-     * Wraps and object to provider new behavior
+     * Wraps an object to provider new behavior
      * 
      * Example has a DataStore which saves data to db. Example has 2 decorators, which will
      * save the data to AuditTrail store and send a data update

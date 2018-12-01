@@ -74,7 +74,7 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
         [Fact]
         public void DelayedBuild_Test()
         {
-            // Communicate to real device to get found module info
+            // Communicate with a real device to get device's module infos
 
             var deviceBuilderDelayed = new LaboratoryDeviceBuilder();
 

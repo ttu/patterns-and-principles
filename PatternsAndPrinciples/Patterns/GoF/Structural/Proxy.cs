@@ -7,7 +7,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
     /*
      * Wraps an object to control access to it
-     * 
+     *
      * Provide a surrogate or placeholder for another object to control access to it.
      * The purpose of the proxy pattern is to create a stand-in for a real resource.
      */
@@ -52,11 +52,20 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
         [Fact]
         public async Task Proxy()
         {
-            var httpRequest = new Proxy(new HttpRequester());
-            var result = await httpRequest.GetAsync("http://www.google.com");
-            var result2 = await httpRequest.GetAsync("http://www.google.com");
+            async Task<string> GetGoogle(IHttpRequester http)
+            {
+                return await http.GetAsync("http://www.google.com");
+            }
 
-            Assert.Equal(result, result2);
+            var httpRequest = new HttpRequester();
+            var proxy = new Proxy(httpRequest);
+
+            var result = await GetGoogle(proxy);
+            var result2 = await GetGoogle(proxy);
+            var result3 = await GetGoogle(httpRequest);
+
+            Assert.Same(result, result2);
+            Assert.NotSame(result, result3);
         }
     }
 }
