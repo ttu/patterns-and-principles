@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Principles.SOLID
 {
@@ -14,17 +16,18 @@ namespace PatternsAndPinciples.Principles.SOLID
     {
         public override void Send(string topic, object payload)
         {
-            // Send to RabbitMQ
+            Trace.WriteLine($"Send to RabbitMQ: {payload}");
         }
     }
 
     public class ExtendedConnection : RabbitMQConnection
     {
-        // Because ExtendedConnection inherits RabbitMQConnection, it needs to send payload to RabbitMQ
         public override void Send(string topic, object payload)
         {
+            // Because ExtendedConnection inherits RabbitMQConnection, it needs to send payload to RabbitMQ
             base.Send(topic, payload);
-            // Send to somewhere else
+            Trace.WriteLine($"Send to somewhere else: {payload}");
+
         }
     }
 
@@ -46,6 +49,8 @@ namespace PatternsAndPinciples.Principles.SOLID
 
     public class LiskovSubstitionPrincipleTest
     {
+        public LiskovSubstitionPrincipleTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
+
         [Fact]
         public void Test()
         {
