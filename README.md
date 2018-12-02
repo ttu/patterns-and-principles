@@ -39,7 +39,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
   * Prototype
   * Singleton
   * Object Pool
-  * Factory
+  * Factory / Factory Method
   * Abstract Factory
   * Builder
 
