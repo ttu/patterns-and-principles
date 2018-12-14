@@ -6,6 +6,9 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
 {
     /*
      * Avoids expensive acquisition and release of resources by recycling objects that are no longer in use
+     * 
+     * 1) Pool with Aquire/Relese-methods
+     * 2) Pool with automatic release on connection dispose
      */
 
     public class Connection
@@ -50,7 +53,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
         [Fact]
         public void Disposable_Test()
         {
-            var pool = new DataBaseConnection();
+            var pool = new ConnectionManager();
 
             var con1 = pool.CreateConnection();
             var con2 = pool.CreateConnection();
@@ -66,26 +69,31 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
 
     public class DbConnection : IDisposable
     {
-        private readonly Stack<DbConnection> _freeList;
+        private readonly Action<DbConnection> _releaseAction;
 
-        public DbConnection(Stack<DbConnection> freeList) => _freeList = freeList;
+        public DbConnection(Action<DbConnection> releaseAction) => _releaseAction = releaseAction;
 
         public Guid Id { get; } = Guid.NewGuid();
 
         public void Dispose()
         {
-            _freeList.Push(this);
+            _releaseAction(this);
         }
     }
 
-    public class DataBaseConnection
+    public class ConnectionManager
     {
         private readonly Stack<DbConnection> _freeList = new Stack<DbConnection>();
 
         public DbConnection CreateConnection()
         {
             _freeList.TryPop(out var connection);
-            return connection ?? new DbConnection(_freeList);
+            return connection ?? new DbConnection((s) => ReleaseConnection(s));
+        }
+
+        private void ReleaseConnection(DbConnection connection)
+        {
+            _freeList.Push(connection);
         }
     }
 }

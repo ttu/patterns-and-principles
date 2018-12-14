@@ -96,17 +96,7 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
     }
 
     /*
-     * Check ImageFactory
-     * https://github.com/JimBobSquarePants/ImageProcessor/blob/develop/src/ImageProcessor/ImageFactory.cs
-     * e.g.
-     *  imageFactory.Load(inStream)
-     *              .Resize(resizeLayer)
-     *              .Format(format)
-     *              .Save(outStream);
-     */
-
-    /*
-     * Fluent interface vs Builder
-     * https://stackoverflow.com/questions/17937755/what-is-the-difference-between-a-fluent-interface-and-the-builder-pattern
+     * Check ASP.NET Core ConfigurationBuilder
+     * https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#configureappconfiguration
      */
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Xunit;
@@ -37,6 +38,26 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
 
             Assert.Equal(myUser.Name, cloned.Name);
         }
+
+        [Fact]
+        public void AccountTest()
+        {
+            var account = new Account { Id = "my account" };
+
+            var cloned = account.Clone() as Account;
+
+            Assert.Equal(account.Id, cloned.Id);
+        }
+
+        [Fact]
+        public void CloneTest()
+        {
+            var account = new Account { Id = "my account" };
+
+            var cloned = CloneHelpers.CloneJson(account);
+
+            Assert.Equal(account.Id, cloned.Id);
+        }
     }
 
     // C# has a ICloneable interface
@@ -53,8 +74,15 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
     // More common way is just to use generic clone helpers etc.
     public static class CloneHelpers
     {
+        public static T CloneJson<T>(T source)
+        {
+            var json = JsonConvert.SerializeObject(source);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
+
         public static T Clone<T>(T source)
         {
+            // This requires object to be marked as serialzable
             var formatter = new BinaryFormatter();
             using (var stream = new MemoryStream())
             {

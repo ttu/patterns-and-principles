@@ -5,15 +5,15 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
     /*
      * Allows a client to create families of objects without specifying their concrete classes
      * 
-     * MessageQueue factories create specific Outbound and Reply queues
+     * MessageQueue factories create specific Outbound and Response queues
      * MessageQueue implementations that are interchangable
      */
 
     public interface IMessageQueue { }
 
-    public class MsmqMessageQueue : IMessageQueue { }
+    public class AwsMessageQueue : IMessageQueue { }
 
-    public class MsmqResponseMessageQueue : IMessageQueue { }
+    public class AwsResponseMessageQueue : IMessageQueue { }
 
     public class AzureMessageQueue : IMessageQueue { }
 
@@ -23,7 +23,7 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
     {
         IMessageQueue CreateOutboundQueue(string name);
 
-        IMessageQueue CreateReplyQueue(string name);
+        IMessageQueue CreateResponseQueue(string name);
     }
 
     public class AzureServiceBusQueueFactory : IMessageQueueFactory
@@ -33,22 +33,22 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
             return new AzureMessageQueue(/*....*/);
         }
 
-        public IMessageQueue CreateReplyQueue(string name)
+        public IMessageQueue CreateResponseQueue(string name)
         {
             return new AzureResponseMessageQueue(/*....*/);
         }
     }
 
-    public class MsmqFactory : IMessageQueueFactory
+    public class AwsFactory : IMessageQueueFactory
     {
         public IMessageQueue CreateOutboundQueue(string name)
         {
-            return new MsmqMessageQueue(/*....*/);
+            return new AwsMessageQueue(/*....*/);
         }
 
-        public IMessageQueue CreateReplyQueue(string name)
+        public IMessageQueue CreateResponseQueue(string name)
         {
-            return new MsmqResponseMessageQueue(/*....*/);
+            return new AwsResponseMessageQueue(/*....*/);
         }
     }
 
@@ -76,11 +76,11 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
         public void Test()
         {
             // Get correct factory type from configuration
-            var factoryType = "msmq";
+            var factoryType = "aws";
 
             var factory = factoryType == "azure"
                                     ? new AzureServiceBusQueueFactory() as IMessageQueueFactory
-                                    : new MsmqFactory();
+                                    : new AwsFactory();
 
             var producer = new Producer(factory);
             producer.SendData();
