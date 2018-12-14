@@ -7,7 +7,7 @@ namespace PatternsAndPinciples.Principles.SOLID
 {
     public class CollectionUse
     {
-        List<int> _items = new List<int>();
+        private List<int> _items = new List<int>();
 
         public void SearchItems(IEnumerable<int> collection)
         {

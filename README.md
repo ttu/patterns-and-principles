@@ -76,6 +76,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
 ### Other
  
+  * IoC Container
   * __TODO__
     * Modularity 
     * Coupling
@@ -94,4 +95,4 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 * https://softwareengineering.stackexchange.com/questions/178488/lsp-vs-ocp-liskov-substitution-vs-open-close
 * https://softwareengineering.stackexchange.com/questions/201397/difference-between-the-adapter-pattern-and-the-proxy-pattern
 * https://stackoverflow.com/questions/1658192/what-is-the-difference-between-strategy-design-pattern-and-state-design-pattern
- 
+ * https://stackoverflow.com/questions/17937755/what-is-the-difference-between-a-fluent-interface-and-the-builder-pattern*
