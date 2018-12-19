@@ -1,4 +1,6 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
@@ -11,6 +13,8 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
     /*
      * Encapsulate a request as an object, thereby letting you parameterize clients
      * with different requests, queue or log requests, and support undoable operations
+     * 
+     * Also has a ommand example using only functions
      */
 
     public abstract class Device
@@ -121,6 +125,23 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
             while (commandProcessor.HasCommands)
                 Thread.Sleep(10);
+        }
+
+        [Fact]
+        public void CommandsWithFunctions()
+        {
+            var tv = new ExternalDisplay();
+            var measurementnDevice = new LaboratoryDevice();
+
+            var deviceOnCommand = new Action<Device>(d => d.TurnOn());
+
+            var tvOnCommand = new Action(() => deviceOnCommand(tv));
+            var mdOnCommand = new Action(() => deviceOnCommand(measurementnDevice));
+
+            var commands = new List<Action> { tvOnCommand, mdOnCommand };
+
+            foreach (var cmd in commands)
+                cmd();
         }
     }
 }

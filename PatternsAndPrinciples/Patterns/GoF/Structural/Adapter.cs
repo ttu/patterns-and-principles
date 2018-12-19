@@ -27,6 +27,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
     }
 
     // 3rd party device has different API
+    // This is imported e.g. from another dll
     public class ThirdPartyDevice
     {
         public void OpenConnection()

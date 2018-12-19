@@ -13,7 +13,7 @@ const cache = {};
 const getResponseJson = async url => {
   const result = await fetch(url);
   console.log(`Fetch status:${result.status}`);
-  return result.json();
+  return await result.json();
 };
 
 const cacheProxyWrapper = async (url, func) => {
