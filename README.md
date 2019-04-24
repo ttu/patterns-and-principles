@@ -58,6 +58,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
   * DI
   * Functions instead of DI
+  * OOP to Functions
   * __TODO__
 	* Service Locator
 	* Repository
