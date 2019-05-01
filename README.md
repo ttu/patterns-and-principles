@@ -24,14 +24,15 @@ http://www.mcdonaldland.info/2007/11/28/40/)
   * Command
   * Observer
   * Memento
+  * Strategy
   * __TODO__
-    * Strategy
     * State
     * Template Method
   * __TODO MAYBE__
     * Chain of Responsibility
     * Interpreter
     * Iterator
+      * Check: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/iterators
     * Mediator
 
 #### Creational
@@ -58,7 +59,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
   * DI
   * Functions instead of DI
-  * OOP to Functions
+  * OOP to Functions ()
   * __TODO__
 	* Service Locator
 	* Repository
