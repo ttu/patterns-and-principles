@@ -2,10 +2,12 @@
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PatternsAndPinciples.Patterns.Other
+namespace PatternsAndPinciples.Patterns.Other.DI
 {
     /*
-     * Check example from Functions.cs - Traditional OOP section
+     * DI & Repository pattern
+     * 
+     * Compare to example DI_Functions.cs
      */
 
     public class User
@@ -14,18 +16,36 @@ namespace PatternsAndPinciples.Patterns.Other
         public string Value { get; set; }
     }
 
-    public class UserRepository
+    // e.g. EF DbContext
+    public class DBContext
     {
-        public User GetUser(int userId) => new User { Id = userId, Value = "XXX" };
+        // Example has only singe Get method that will return User with correct id
+        public T Get<T>(int id) where T : class
+        {
+            return typeof(T) == typeof(User)
+                ? new User { Id = id, Value = "XXX" } as T
+                : default;
+        }
 
-        public bool SaveUser(User use) => true;
+        public bool Save<T>(T data) => true;
     }
 
-    public class UserServiceWithRepo
+    public class UserRepository
+    {
+        private readonly DBContext _context;
+
+        public UserRepository(DBContext context) => context = _context;
+
+        public User GetUser(int userId) => _context.Get<User>(userId);
+
+        public bool SaveUser(User user) => _context.Save(user);
+    }
+
+    public class UserService
     {
         private readonly UserRepository _repo;
 
-        public UserServiceWithRepo(UserRepository repo) => _repo = repo;
+        public UserService(UserRepository repo) => _repo = repo;
 
         public bool UpdateUser(int userId, string newValue)
         {
@@ -42,9 +62,11 @@ namespace PatternsAndPinciples.Patterns.Other
         [Fact]
         public void TestWithRepo()
         {
-            var repo = new UserRepository();
+            var ctx = new DBContext();
 
-            var service = new UserServiceWithRepo(repo);
+            var repo = new UserRepository(ctx);
+
+            var service = new UserService(repo);
             service.UpdateUser(1, "FF");
         }
     }

@@ -1,15 +1,15 @@
 ﻿using PatternsAndPinciples;
-using PatternsAndPinciples.Patterns.Other;
+using PatternsAndPinciples.Patterns.Other.DI;
 using System;
 using System.Diagnostics;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PatternsAndPrinciples.Patterns.Other
+namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
 {
     /*
      * How to use functions instead of repository
-     * 
+     *
      * Compare to the example in DI.cs
      */
 
@@ -39,8 +39,12 @@ namespace PatternsAndPrinciples.Patterns.Other
         [Fact]
         public void TestFunc()
         {
-            var get = new Func<int, User>(i => new User { Id = i, Value = "XXX" });
-            var save = new Func<User, bool>(user => true);
+            // "real" implementation would get data from DbContext
+            var get = new Func<int, User>(i => new DBContext().Get<User>(i));
+            // Test implementation would just return dummy data
+            var getTest = new Func<int, User>(i => new User { Id = i, Value = "Test value" });
+
+            var save = new Func<User, bool>(user => new DBContext().Save(user));
 
             var service = new UserService(get, save);
             service.UpdateUser(1, "FF");
@@ -60,7 +64,8 @@ namespace PatternsAndPrinciples.Patterns.Other
         [Fact]
         public void TestFuncWithRepo()
         {
-            var repo = new UserRepository();
+            var ctx = new DBContext();
+            var repo = new UserRepository(ctx);
 
             var service = new UserService(repo.GetUser, repo.SaveUser);
             service.UpdateUser(1, "FF");
