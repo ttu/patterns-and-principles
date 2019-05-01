@@ -1,12 +1,11 @@
 ﻿using System.Diagnostics;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Patterns.GoF.Structural
 {
     /*
      * Wraps an object to provider new behavior
-     * 
+     *
      * Example has a DataStore which saves data to db. Example has 2 decorators, which will
      * save the data to AuditTrail store and send a data update
      */
@@ -83,8 +82,6 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
 
     public class DecoratorTests
     {
-        public DecoratorTests(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void Test()
         {

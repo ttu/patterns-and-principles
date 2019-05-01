@@ -6,14 +6,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
     /*
      * Encapsulate a request as an object, thereby letting you parameterize clients
      * with different requests, queue or log requests, and support undoable operations
-     * 
+     *
      * Also has a ommand example using only functions
      */
 
@@ -101,8 +100,6 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
     public class CommandTest
     {
-        public CommandTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void Test()
         {

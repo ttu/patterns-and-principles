@@ -49,8 +49,6 @@ namespace PatternsAndPinciples.Principles.SOLID
 
     public class LiskovSubstitionPrincipleTest
     {
-        public LiskovSubstitionPrincipleTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void Test()
         {

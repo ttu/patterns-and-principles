@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
@@ -83,8 +82,6 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
     public class ObserverTests
     {
-        public ObserverTests(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void Test()
         {
@@ -156,8 +153,6 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
     public class SystemObserverTests
     {
-        public SystemObserverTests(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void Test()
         {

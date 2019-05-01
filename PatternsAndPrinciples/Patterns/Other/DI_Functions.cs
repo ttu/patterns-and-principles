@@ -1,9 +1,6 @@
-﻿using PatternsAndPinciples;
-using PatternsAndPinciples.Patterns.Other.DI;
+﻿using PatternsAndPinciples.Patterns.Other.DI;
 using System;
-using System.Diagnostics;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
 {
@@ -34,8 +31,6 @@ namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
 
     public class FunctionsFunctionalTest
     {
-        public FunctionsFunctionalTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void TestFunc()
         {

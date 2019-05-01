@@ -1,12 +1,10 @@
-﻿using System.Diagnostics;
-using Xunit;
-using Xunit.Abstractions;
+﻿using Xunit;
 
 namespace PatternsAndPinciples.Patterns.Other.DI
 {
     /*
      * DI & Repository pattern
-     * 
+     *
      * Compare to example DI_Functions.cs
      */
 
@@ -57,8 +55,6 @@ namespace PatternsAndPinciples.Patterns.Other.DI
 
     public class FunctionsTest
     {
-        public FunctionsTest(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void TestWithRepo()
         {

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 {
     /*
      * Provides the ability to restore an object to its previous state (undo).
-     * 
+     *
      * Without violating encapsulation, capture and externalize an object's internal state
      * so that the object can be restored to this state later.
      */
@@ -91,8 +89,6 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
 
     public class MementoTests
     {
-        public MementoTests(ITestOutputHelper outputHelper) => Trace.Listeners.Add(new TestTraceListener(outputHelper));
-
         [Fact]
         public void Test()
         {
