@@ -89,6 +89,8 @@ namespace PatternsAndPrinciples.Patterns.Other
         public RobotData AcmeSeek(RobotData data)
         {
             // Get distance from the sensor. Random should be wrapped to IoMonad and passed as a parameter
+            // This way Seek would be a pure function
+            // var newDistance = distanceMonad.GetDistance();
             var newDistance = new Random().Next(0, 100);
 
             Trace.WriteLine($"ACME seek: {newDistance}");

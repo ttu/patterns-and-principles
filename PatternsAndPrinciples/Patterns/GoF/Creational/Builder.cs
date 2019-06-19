@@ -69,6 +69,14 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
                             .AddBaseModule(new DeviceModule("base45"))
                             .AddOpticalModule(new DeviceModule("op42"))
                             .Build();
+
+            // Builder doesn't have to be used in a fluent way
+
+            var builder = new LaboratoryDeviceBuilder();
+            builder.AddBaseModule(new DeviceModule("base45"));
+            builder.AddOpticalModule(new DeviceModule("op42"));
+
+            var device2 = builder.Build();
         }
 
         [Fact]

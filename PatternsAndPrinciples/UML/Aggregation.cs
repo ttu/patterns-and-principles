@@ -68,6 +68,7 @@ namespace PatternsAndPinciples.UML
             company.AddDepartment("A1");
             company.AddDepartment("A2");
 
+            // Departments are also destroyend
             company = null;
         }
     }

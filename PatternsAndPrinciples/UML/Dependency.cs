@@ -14,5 +14,20 @@ namespace PatternsAndPinciples.UML
         public SearchController(ISearchService service) => _service = service;
 
         public ICollection<dynamic> Get(string searchText) => _service.Get(searchText);
+
+        public ICollection<dynamic> Get(ISearchService service, string searchText) => service.Get(searchText);
+    }
+
+    public class Car
+    {
+        public string Model { get; set; }
+    }
+
+    public class CarFactory
+    {
+        public Car GetToyota()
+        {
+            return new Car { Model = "Toyota" };
+        }
     }
 }

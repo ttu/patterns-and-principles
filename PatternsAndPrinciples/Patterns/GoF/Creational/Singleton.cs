@@ -45,5 +45,14 @@ namespace PatternsAndPinciples.Patterns.GoF.Creational
 
             Assert.True(ReferenceEquals(s1, s2));
         }
+
+        [Fact]
+        public void ThreadSafeTest()
+        {
+            var s1 = ThreadSafeSingleton.Instance;
+            var s2 = ThreadSafeSingleton.Instance;
+
+            Assert.True(ReferenceEquals(s1, s2));
+        }
     }
 }

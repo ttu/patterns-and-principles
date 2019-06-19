@@ -32,7 +32,9 @@ http://www.mcdonaldland.info/2007/11/28/40/)
     * Chain of Responsibility
     * Interpreter
     * Iterator
-      * Check: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/iterators
+      * Check: 
+        * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/iterators
+        * https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable.getenumerator?view=netcore-2.2    
     * Mediator
 
 #### Creational

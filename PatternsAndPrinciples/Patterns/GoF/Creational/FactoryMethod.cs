@@ -15,4 +15,9 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
 
         IHttpResponse CreateResponse(int httpStatusCode);
     }
+
+    /*
+     * SqlConnection has CreateCommand-method
+     * https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlconnection.createcommand?view=netframework-4.8#System_Data_SqlClient_SqlConnection_CreateCommand
+     */
 }
