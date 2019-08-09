@@ -20,7 +20,7 @@ namespace PatternsAndPinciples.Patterns.GoF.Structural
         public bool ExecuteCommand(int cmd)
         {
             // Open Connection
-            // Fetch data
+            // Execute command
             // Close connection
             return true;
         }

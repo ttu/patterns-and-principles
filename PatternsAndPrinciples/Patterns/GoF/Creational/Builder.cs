@@ -106,5 +106,8 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
     /*
      * Check ASP.NET Core ConfigurationBuilder
      * https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#configureappconfiguration
+     * 
+     * ConfigurationBuilder, LoggerConfiguration, CreateDefaultBuilder
+     * https://github.com/ttu/dotnet-fake-json-server/blob/6995c8b9211a8dd2270e27857d0a3f1c99dc0628/FakeServer/Program.cs#L27
      */
 }

@@ -5,26 +5,6 @@ using Xunit;
 
 namespace PatternsAndPinciples.Principles.SOLID
 {
-    public class CollectionUse
-    {
-        private List<int> _items = new List<int>();
-
-        public void SearchItems(IEnumerable<int> collection)
-        {
-            var current = collection.Where(i => i == 2);
-        }
-
-        public void ModifyCollection(ICollection<int> collection)
-        {
-            collection.Add(2);
-        }
-
-        public void NeedToUseIndex(IList<int> collection)
-        {
-            collection[0] = 2;
-        }
-    }
-
     public class DataItem
     {
         public string Text { get; set; }

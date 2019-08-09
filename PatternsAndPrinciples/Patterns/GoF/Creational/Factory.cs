@@ -11,6 +11,8 @@ namespace PatternsAndPrinciples.Patterns.GoF.Creational
         private readonly string _address;
 
         public RabbitMqResponseQueue(string address) => _address = address;
+
+        public dynamic GetData() => true;
     }
 
     public class RabbitMqRequestQueue

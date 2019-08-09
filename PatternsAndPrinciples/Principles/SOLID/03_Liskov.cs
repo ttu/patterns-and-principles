@@ -27,7 +27,6 @@ namespace PatternsAndPinciples.Principles.SOLID
             // Because ExtendedConnection inherits RabbitMQConnection, it needs to send payload to RabbitMQ
             base.Send(topic, payload);
             Trace.WriteLine($"Send to somewhere else: {payload}");
-
         }
     }
 
