@@ -25,16 +25,17 @@ http://www.mcdonaldland.info/2007/11/28/40/)
   * Observer
   * Memento
   * Strategy
+  * State
+  * Iterator
+    * Check implemenation from: 
+      * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/iterators
+      * https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable.getenumerator?view=netcore-2.2    
   * __TODO__
-    * State
     * Template Method
   * __TODO MAYBE__
     * Chain of Responsibility
     * Interpreter
     * Iterator
-      * Check: 
-        * https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/iterators
-        * https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable.getenumerator?view=netcore-2.2    
     * Mediator
 
 #### Creational
@@ -59,9 +60,9 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
 ### Other
 
-  * DI
+  * Dependecy Injection
   * Functions instead of DI
-  * OOP to Functions ()
+  * OOP to Functions
   * __TODO__
 	* Service Locator
 	* Repository
