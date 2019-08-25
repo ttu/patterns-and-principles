@@ -169,4 +169,50 @@ namespace PatternsAndPinciples.Patterns.GoF.Behavioral
             provider.Next(10);
         }
     }
+
+    #region "Events"
+
+    public class EventDataProvider
+    {
+        public event EventHandler<int> NewData;
+        //public Action<int> NewData;
+
+        public void Next(int data)
+        {
+            NewData?.Invoke(this, data);
+            //NewData?.Invoke(data);
+        }
+    }
+
+    public class EventDataObserver
+    {
+        private readonly EventDataProvider _provider;
+
+        public EventDataObserver(EventDataProvider provider)
+        {
+            _provider = provider;
+            _provider.NewData += (object sender, int e) =>
+            {
+                Trace.WriteLine($"Received new data: {e}");
+
+            };
+            //_provider.NewData += (int e) => Trace.WriteLine($"Received new data: {e}");
+        }
+    }
+
+    public class EventTests
+    {
+        [Fact]
+        public void Test()
+        {
+            var provider = new EventDataProvider();
+
+            var observer = new EventDataObserver(provider);
+
+            provider.Next(2);
+            provider.Next(10);
+        }
+    }
+
+    #endregion
 }
