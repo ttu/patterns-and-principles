@@ -3,7 +3,7 @@
  * If context changes then strategy will need also updates
  * 
  * Check input handling as a strategy from Lego Boost AI
- * https://github.com/ttu/lego-boost-ai/blob/0942048b8f724b693893a3362cd45fbca710c29b/input-modes.js
+ * https://github.com/ttu/lego-boost-ai/blob/0942048b8f724b693893a3362cd45fbca710c29b/src/input-modes.js#L1
  * 
  * Set original strategy:
  * https://github.com/ttu/lego-boost-ai/blob/0942048b8f724b693893a3362cd45fbca710c29b/index.js#L4
