@@ -1,10 +1,10 @@
 # C# Patterns & Principles
 
-> Work in progess
-
 Code examples for _Patterns and Principles - are these important anymore?_ training.
 
-Examples are in C# and some have Javascript implementation to show how this could be implemented with using only functions.
+Main aim of the training was to show how languages have evolved from the times when Design Pattern were often required and why and when some patterns should still be used.
+
+Examples are in C# and some have JavaScript implementation to show how this could be implemented by using functions only. 
 
 Examples try to use more real life cases, but sometimes it is hard to come up with a simple example.
 
@@ -32,6 +32,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
       * https://docs.microsoft.com/en-us/dotnet/api/system.collections.ienumerable.getenumerator?view=netcore-2.2    
   * __TODO__
     * Template Method
+    * Visitor
   * __TODO MAYBE__
     * Chain of Responsibility
     * Interpreter
@@ -60,12 +61,16 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
 ### Other
 
+These examples mainly compare Functional and Object patterns.
+
   * Dependecy Injection
   * Functions instead of DI
   * OOP to Functions
+  * Class vs closure
   * __TODO__
 	* Service Locator
 	* Repository
+    * Unit of work
     * Fluent Pattern
 
 ## Principles
