@@ -32,7 +32,7 @@ namespace PatternsAndPrinciples.Patterns.Other.DI
     {
         private readonly DBContext _context;
 
-        public UserRepository(DBContext context) => context = _context;
+        public UserRepository(DBContext context) => _context = context;
 
         public User GetUser(int userId) => _context.Get<User>(userId);
 
@@ -53,7 +53,7 @@ namespace PatternsAndPrinciples.Patterns.Other.DI
         }
     }
 
-    public class FunctionsTest
+    public class DITest
     {
         [Fact]
         public void TestWithRepo()
