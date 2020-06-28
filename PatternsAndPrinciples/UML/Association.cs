@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace PatternsAndPinciples.UML
+namespace PatternsAndPrinciples.UML
 {
     /*
      * An association is a linkage between two classes.

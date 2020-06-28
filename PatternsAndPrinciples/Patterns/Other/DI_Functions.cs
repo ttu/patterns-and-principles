@@ -1,5 +1,4 @@
-﻿using PatternsAndPinciples.Patterns.Other.DI;
-using System;
+﻿using System;
 using Xunit;
 
 namespace PatternsAndPrinciples.Patterns.Other.DI.Functions

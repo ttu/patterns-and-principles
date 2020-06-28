@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace PatternsAndPinciples.Patterns.Other.DI
+namespace PatternsAndPrinciples.Patterns.Other.DI
 {
     /*
      * DI & Repository pattern

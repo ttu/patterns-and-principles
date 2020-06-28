@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace PatternsAndPinciples.Principles.SOLID
+namespace PatternsAndPrinciples.Principles.SOLID
 {
     public class DataItem
     {

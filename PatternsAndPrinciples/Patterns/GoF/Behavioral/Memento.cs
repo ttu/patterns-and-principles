@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Behavioral
+namespace PatternsAndPrinciples.Patterns.GoF.Behavioral
 {
     /*
      * Provides the ability to restore an object to its previous state (undo).

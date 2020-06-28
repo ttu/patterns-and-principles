@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace PatternsAndPinciples.UML
+namespace PatternsAndPrinciples.UML
 {
     /*
      * An association with an aggregation relationship indicates that one class is a part of another class.

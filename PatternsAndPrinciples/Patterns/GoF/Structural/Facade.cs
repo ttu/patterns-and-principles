@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Structural
+namespace PatternsAndPrinciples.Patterns.GoF.Structural
 {
     /*
      * Simpifies the interface of a set of classes

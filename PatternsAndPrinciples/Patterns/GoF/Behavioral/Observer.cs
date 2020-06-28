@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Behavioral
+namespace PatternsAndPrinciples.Patterns.GoF.Behavioral
 {
     /*
      * A pulish/subscribe pattern which allows a number of observer objects to see an event.

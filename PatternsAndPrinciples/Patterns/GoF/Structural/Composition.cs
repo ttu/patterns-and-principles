@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Structural
+namespace PatternsAndPrinciples.Patterns.GoF.Structural
 {
     /*
      * Clients treat collections of objects and individual objects uniformally

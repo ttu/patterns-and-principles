@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Structural
+namespace PatternsAndPrinciples.Patterns.GoF.Structural
 {
     /*
      * Wraps an object to provider new behavior

@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Structural
+namespace PatternsAndPrinciples.Patterns.GoF.Structural
 {
     /*
      * Wraps an object to control access to it

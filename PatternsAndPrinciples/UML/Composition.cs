@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace PatternsAndPinciples.UML
+namespace PatternsAndPrinciples.UML
 {
     public class InvoiceService
     {

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Behavioral
+namespace PatternsAndPrinciples.Patterns.GoF.Behavioral
 {
     /*
      * Allows an object to alter its behavior when its internal state changes.

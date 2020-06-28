@@ -5,7 +5,7 @@ using System.IO;
 using System.Xml.Serialization;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Behavioral
+namespace PatternsAndPrinciples.Patterns.GoF.Behavioral
 {
     /*
      * Allows one of a family of algorithms to be selected on-the-fly at runtime.

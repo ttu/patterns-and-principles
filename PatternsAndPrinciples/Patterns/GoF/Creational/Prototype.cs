@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Creational
+namespace PatternsAndPrinciples.Patterns.GoF.Creational
 {
     /*
      * A fully initialized instance to be copied or cloned

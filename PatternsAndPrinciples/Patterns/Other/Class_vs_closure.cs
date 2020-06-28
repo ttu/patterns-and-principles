@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.Other
+namespace PatternsAndPrinciples.Patterns.Other
 {
     public class Class_vs_Closure
     {

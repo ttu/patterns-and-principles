@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using Xunit;
-using Xunit.Abstractions;
 
-namespace PatternsAndPinciples.Principles.SOLID
+namespace PatternsAndPrinciples.Principles.SOLID
 {
     public abstract class MessageBusConnection
     {

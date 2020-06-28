@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace PatternsAndPinciples.UML
+namespace PatternsAndPrinciples.UML
 {
     // Realization / Implementation
 

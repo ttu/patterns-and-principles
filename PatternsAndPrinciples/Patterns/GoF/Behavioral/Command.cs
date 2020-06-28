@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PatternsAndPinciples.Patterns.GoF.Behavioral
+namespace PatternsAndPrinciples.Patterns.GoF.Behavioral
 {
     /*
      * Encapsulate a request as an object, thereby letting you parameterize clients
