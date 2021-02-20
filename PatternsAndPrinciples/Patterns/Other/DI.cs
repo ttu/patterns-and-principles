@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using Xunit;
 
 namespace PatternsAndPrinciples.Patterns.Other.DI
 {
@@ -8,26 +9,6 @@ namespace PatternsAndPrinciples.Patterns.Other.DI
      * Compare to example DI_Functions.cs
      */
 
-    public class User
-    {
-        public int Id { get; set; }
-        public string Value { get; set; }
-    }
-
-    // e.g. EF DbContext
-    public class DBContext
-    {
-        // Example has only singe Get method that will return User with correct id
-        public T Get<T>(int id) where T : class
-        {
-            return typeof(T) == typeof(User)
-                ? new User { Id = id, Value = "XXX" } as T
-                : default;
-        }
-
-        public bool Save<T>(T data) => true;
-    }
-
     public class UserRepository
     {
         private readonly DBContext _context;
@@ -36,7 +17,7 @@ namespace PatternsAndPrinciples.Patterns.Other.DI
 
         public User GetUser(int userId) => _context.Get<User>(userId);
 
-        public bool SaveUser(User user) => _context.Save(user);
+        public bool SaveUser(User user) => _context.Save(user.Id, user);
     }
 
     public class UserService
@@ -64,6 +45,43 @@ namespace PatternsAndPrinciples.Patterns.Other.DI
 
             var service = new UserService(repo);
             service.UpdateUser(1, "FF");
+
+            Assert.Equal("FF", repo.GetUser(1).Value);
         }
     }
+    
+    #region "Helpers & Models"
+    
+    public class User
+    {
+        public int Id { get; set; }
+        public string Value { get; set; }
+    }
+
+    // e.g. EF DbContext
+    public class DBContext
+    {
+        private Dictionary<int, dynamic> _db = new Dictionary<int, dynamic>();
+        
+        // Example has only singe Get method that will return User with correct id
+        public T Get<T>(int id) where T : class
+        {
+            T CreateNew(int newId) => typeof(T) == typeof(User)
+                ? new User { Id = newId, Value = "XXX" } as T
+                : default;
+
+            if (_db.ContainsKey(id)) return _db[id];
+
+            var newItem = CreateNew(id);
+            _db.Add(id, newItem);
+            return newItem;
+        }
+
+        public bool Save<T>(int id, T data) {
+            _db[id] = data;
+            return true;
+        }
+    }
+    
+    #endregion
 }

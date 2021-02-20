@@ -61,26 +61,34 @@ namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
         [Fact]
         public void TestFunc()
         {
+            var db = new DBContext();
+            
             // "real" implementation would get data from DbContext
-            var get = new Func<int, User>(i => new DBContext().Get<User>(i));
+            var get = new Func<int, User>(i => db.Get<User>(i));
             // Test implementation would just return dummy data
             var getTest = new Func<int, User>(i => new User { Id = i, Value = "Test value" });
 
-            var save = new Func<User, bool>(user => new DBContext().Save(user));
+            var save = new Func<User, bool>(user => db.Save(user.Id, user));
 
             // 1. Inject functions in constructor
             var service = new UserService(get, save);
             service.UpdateUser(1, "FF");
 
+            Assert.Equal("FF", db.Get<User>(1).Value);
+
             // In "reality" would just use more functions instead of service class
 
             // 2. Functions as parameters
-            UserServiceFuncs.UpdateUserFunc(3, "FF3", get, save);
-           
+            UserServiceFuncs.UpdateUserFunc(2, "FF2", get, save);
+
+            Assert.Equal("FF2", db.Get<User>(2).Value);
+
             // 3. Function composition
             var updateUserComposed = UserServiceFuncs.ComposeUpdateUserFunc(get, save);
-            updateUserComposed(2, "FF2");
-            
+            updateUserComposed(3, "FF3");
+
+            Assert.Equal("FF3", db.Get<User>(3).Value);
+
             // UpdateUser as Func
             // NOTE: This is one of the reasons why C# would need better type inference
             var updateUser = new Func<int, string, Func<int, User>, Func<User, bool>, bool>((userId, newValue, getFunc, saveFunc) =>
@@ -91,6 +99,8 @@ namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
             });
 
             updateUser(4, "FF4", get, save);
+            
+            Assert.Equal("FF4", db.Get<User>(4).Value);
         }
 
         [Fact]
