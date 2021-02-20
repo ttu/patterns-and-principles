@@ -6,9 +6,14 @@ namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
     /*
      * How to use functions instead of repository
      *
-     * Compare to the example in DI.cs
+     * 1. Inject functions in constructor
+     * 2. Pass functions as parameters
+     * 3. Function composition
+     * 
+     * Compare to the UserService-class in DI.cs
      */
 
+    // 1. Inject functions in constructor
     public class UserService
     {
         private readonly Func<int, User> _getUser;
@@ -27,6 +32,29 @@ namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
             return _updateUser(user);
         }
     }
+    
+    // Static class in here is just a collection of functions
+    public static class UserServiceFuncs
+    {
+        // 2. Pass functions as parameters
+        public static bool UpdateUserFunc(int userId, string newValue, Func<int, User> getUser, Func<User, bool> updateUser)
+        {
+            var user = getUser(userId);
+            user.Value = newValue;
+            return updateUser(user);
+        }
+        
+        // 3. Function composition
+        public static Func<int, string, bool> ComposeUpdateUserFunc(Func<int, User> getUser, Func<User, bool> updateUser)
+        {
+            return new Func<int, string, bool>((userId, newValue) =>
+            {
+                var user = getUser(userId);
+                user.Value = newValue;
+                return updateUser(user);
+            });
+        }
+    }
 
     public class FunctionsFunctionalTest
     {
@@ -40,19 +68,29 @@ namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
 
             var save = new Func<User, bool>(user => new DBContext().Save(user));
 
+            // 1. Inject functions in constructor
             var service = new UserService(get, save);
             service.UpdateUser(1, "FF");
 
             // In "reality" would just use more functions instead of service class
+
+            // 2. Functions as parameters
+            UserServiceFuncs.UpdateUserFunc(3, "FF3", get, save);
+           
+            // 3. Function composition
+            var updateUserComposed = UserServiceFuncs.ComposeUpdateUserFunc(get, save);
+            updateUserComposed(2, "FF2");
+            
+            // UpdateUser as Func
             // NOTE: This is one of the reasons why C# would need better type inference
-            var handle = new Func<int, string, Func<int, User>, Func<User, bool>, bool>((userId, newValue, getFunc, saveFunc) =>
+            var updateUser = new Func<int, string, Func<int, User>, Func<User, bool>, bool>((userId, newValue, getFunc, saveFunc) =>
             {
                 var user = getFunc(userId);
                 user.Value = newValue;
                 return saveFunc(user);
             });
 
-            handle(1, "FF", get, save);
+            updateUser(4, "FF4", get, save);
         }
 
         [Fact]
@@ -60,7 +98,7 @@ namespace PatternsAndPrinciples.Patterns.Other.DI.Functions
         {
             var ctx = new DBContext();
             var repo = new UserRepository(ctx);
-
+            
             var service = new UserService(repo.GetUser, repo.SaveUser);
             service.UpdateUser(1, "FF");
         }
