@@ -62,6 +62,9 @@ namespace PatternsAndPrinciples.Patterns.Other
             Execute(vacuumRobot);
         }
 
+        // FP way
+        // Separate data and functions
+
         public class RobotData
         {
             public int Speed { get; set; }
@@ -86,12 +89,14 @@ namespace PatternsAndPrinciples.Patterns.Other
             };
         }
 
-        public RobotData AcmeSeek(RobotData data)
+
+        public RobotData AcmeSeek(RobotData data, Func<int> getDistence)
         {
-            // Get distance from the sensor. Random should be wrapped to IoMonad and passed as a parameter
-            // This way Seek would be a pure function
-            // var newDistance = distanceMonad.GetDistance();
-            var newDistance = new Random().Next(0, 100);
+            // Get distance from the sensor. 
+            // Distance is wrapped to "IoMonad" and passed as a parameter
+            // This way Seek is a pure function (Haskell way pure as IO is "outsourced")
+            var newDistance = getDistence();
+            // Non pure: var newDistance = new Random().Next(0, 100);
 
             Trace.WriteLine($"ACME seek: {newDistance}");
 
@@ -109,6 +114,9 @@ namespace PatternsAndPrinciples.Patterns.Other
             };
         }
 
+        // Get a random value as a distance. DistanceIoMonad
+        private int GetDistanceFromSensor() => new Random().Next(0, 100);
+
         [Fact]
         public void Robot_FP()
         {
@@ -123,7 +131,7 @@ namespace PatternsAndPrinciples.Patterns.Other
             {
                 if (data.IsActive == false) return;
 
-                Execute(AcmeDrive(AcmeSeek(data)));
+                Execute(AcmeDrive(AcmeSeek(data, GetDistanceFromSensor)));
             }
 
             Execute(acmeRobot);
@@ -139,11 +147,11 @@ namespace PatternsAndPrinciples.Patterns.Other
                 IsActive = true
             };
 
-            void Execute(RobotData data, Func<RobotData, RobotData> drive, Func<RobotData, RobotData> seek)
+            void Execute(RobotData data, Func<RobotData, RobotData> drive, Func<RobotData, Func<int>, RobotData> seek)
             {
                 if (data.IsActive == false) return;
 
-                Execute(drive(seek(data)), drive, seek);
+                Execute(drive(seek(data, GetDistanceFromSensor)), drive, seek);
             }
 
             Execute(acmeRobot, AcmeDrive, AcmeSeek);
