@@ -66,12 +66,13 @@ These examples mainly compare Functional and Object patterns.
   * Dependecy Injection
   * Functions instead of DI
   * OOP to Functions
+  * OOP vs FP modules
   * Class vs closure
   * __TODO__
-	* Service Locator
-	* Repository
-    * Unit of work
-    * Fluent Pattern
+	  * Service Locator
+	  * Repository
+      * Unit of work
+      * Fluent Pattern
 
 ## Principles
 
