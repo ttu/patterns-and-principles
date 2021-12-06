@@ -68,11 +68,11 @@ These examples mainly compare Functional and Object patterns.
   * OOP to Functions
   * OOP vs FP modules
   * Class vs closure
+  * Fluent interface / method chaining
   * __TODO__
 	  * Service Locator
 	  * Repository
       * Unit of work
-      * Fluent Pattern
 
 ## Principles
 
