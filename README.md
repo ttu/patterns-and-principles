@@ -89,6 +89,7 @@ These examples mainly compare Functional and Object patterns.
  
   * IoC Container
   * Coupling and Cohesion
+  * Encapsulation and Abstraction
   * __TODO__
     * Modularity 
     * Command Query separation
