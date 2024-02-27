@@ -1,23 +1,22 @@
 # C# Patterns & Principles
 
-Code examples for _Patterns and Principles - are these important anymore?_ training.
+Code examples for _Patterns and Principles: Are These Important Anymore?_-training.
 
-Main aim of the training was to show how languages have evolved from the times when Design Pattern were often required and why and when some patterns should still be used.
+The main aim of the training was to demonstrate how languages have evolved from the times when design patterns were often required, and to explain why and when some patterns should still be used.
 
-Examples are in C# and some have JavaScript implementation to show how this could be implemented by using functions only. 
+Pattern examples are provided in _C#_ and some include _JavaScript_ implementations to show how these can be implemented using only functions. Some examples of principles are in _Python_.
 
-Examples try to use more real life cases, but sometimes it is hard to come up with a simple example.
+The examples strive to utilize more real-life cases, although it is sometimes challenging to come up with a simple example.
 
-Examples also contain UML class diagram code samples, as Gof Patterns are presented in UML. 
+Additionally, the examples contain UML class diagram code samples, as GoF Patterns are presented in UML.
 
-Each file has classes and interfaces for the pattern/principle and tests for executing examples.
+Each C#-file includes classes and interfaces for the pattern/principle, along with tests for executing the examples.
 
 ## Patterns
 
 ### Gang of Four
 
-GoF Pattern class diagrams: [Design Patterns Quick Reference (MCDONALDLAND)](
-http://www.mcdonaldland.info/2007/11/28/40/)
+GoF Pattern class diagrams: [Design Patterns Quick Reference (MCDONALDLAND)](http://www.mcdonaldland.info/2007/11/28/40/)
 
 #### Behavioral
 
@@ -61,7 +60,7 @@ http://www.mcdonaldland.info/2007/11/28/40/)
 
 ### Other
 
-These examples mainly compare Functional and Object patterns.
+These examples primarily compare functional and object-oriented patterns.
 
   * Dependecy Injection
   * Functions instead of DI
